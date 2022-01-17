@@ -8,14 +8,16 @@ def digit_check(number):
         if num%2!=0:
             return 0
     return 1
-        
+  
+lowelimit=int(input("enter lower_limit"))   
+uperlimit=int(input("enter upper_limit"))   
+ 
 lst=[]
-for number in range(1000,9999):
+for number in range(lowelimit,uperlimit):
     if digit_check(number):  
         
         sqrt=int(math.sqrt(number)) 
-        print(sqrt)
 
         if sqrt*sqrt==number:
             lst.append(number)
-    
+print(lst)
