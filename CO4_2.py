@@ -1,28 +1,44 @@
-"""Create a Bank account with members account number, name, type of account and balance.
-Write constructor and methods to deposit at the bank and withdraw an amount from the bank."""
 
-class bankAccount:
-    def __init__(self,acc_number,name,type_of_account,balance):
-        self.acc_number=acc_number
-        self.name=name
-        self.type_of_account=type_of_account
-        self.balance=balance
+"""
+2. Create a Bank account with members account number, name, type of account and balance.
+Write constructor and methods to deposit at the bank and withdraw an amount from the bank.
+"""
+class Bankaccount:
+    def __init__(self):
+        self.balance=0
+        print("\n Account is created ")    
+    def deposit(self,amt):
+        self.balance=self.balance+amt
+        self.currnet_balance()
+
+    def withdraw(self,amt):
+        if (self.balance>=amt):
+            self.balance=self.balance-amt
+            self.currnet_balance()
+        else:
+            print("Insufficient Balance")
     
-    def deposit(self,amount):
-        self.balance=self.balance+amount
-        return self.balance
-
-    def withdraw(self,amount):
-        self.balance=self.balance-amount
-        return self.balance
-    def currentbalance(self):
-        return self.balance
-
-if __name__=="__main__":
-    b1=bankAccount("12345","Rahul","Savings",10000)
-    print("Current Balance",b1.deposit(100))
-    print("Current Balance",b1.withdraw(200))
-    print("Current Balance",b1.currentbalance())
-
+    def currnet_balance(self):
+        print("\n Your Current Balance is :",self.balance)
+account=Bankaccount()
+cnt=True
+while(cnt):
+    ch=int(input("\n press 1 for deposite \n \
+                    2 for withdraw \n \
+                    3 for check balance \n \
+                    4 for quit "))
+    if ch==1:
+        amount=int(input("\n enter amount to deposit"))
+        account.deposit(amount)
+        ch=0
+    if ch==2:
+        amount=int(input("\n enter amount to withdraw"))
+        account.withdraw(amount)
+        ch=0
+    if ch==3:
+        account.currnet_balance()
+        ch=0
+    if ch==4:
+        cnt=False
 
 
